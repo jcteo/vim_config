@@ -1,3 +1,6 @@
+":::PATHOGEN
+execute pathogen#infect()
+
 "::::VUNDLE
 set nocompatible               " be iMproved
 filetype off                   " required!
