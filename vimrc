@@ -18,7 +18,7 @@ Bundle 'gmarik/vundle'
 "Bundle 'tpope/vim-fugitive'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 "Bundle 'tpope/vim-rails.git'
-Bundle 'joonty/vdebug.git' 
+"""""""""""""""""""""""""""""""""""""Bundle 'joonty/vdebug.git' 
 "
 " vim-scripts repos
 "Bundle 'L9'
@@ -48,6 +48,11 @@ set ignorecase
 set smartindent
 set tabstop=4
 set shiftwidth=4
+set nu "numeros de linea
+
+":::snipMate
+au BufRead *.tpl set ft=tpl.html
+au BufNewFile *.tpl set ft=html.tpl
 
 ":::CommandT
 let g:CommandTAcceptSelectionSplitMap='<C-p>'
