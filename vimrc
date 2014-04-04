@@ -4,44 +4,27 @@ execute pathogen#infect()
 "::::VUNDLE
 set nocompatible               " be iMproved
 filetype off                   " required!
-
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-
-" let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
-
 " My Bundles here:
-"
 " original repos on github
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Bundle 'tpope/vim-rails.git'
-"""""""""""""""""""""""""""""""""""""Bundle 'joonty/vdebug.git' 
-"
-" vim-scripts repos
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-
-" non github repos
-"Bundle 'git://git.wincent.com/command-t.git'
-
-" git repos on your local machine (ie. when working on your own plugin)
-"Bundle 'file:///Users/gmarik/path/to/plugin'
-
+Bundle 'Shougo/neocomplete.vim'
+Bundle 'wincent/Command-T'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'joonty/vim-phpqa'
+Bundle 'joonty/vim-phpunitqf'
+Bundle 'tpope/vim-fugitive'
+Bundle 'bling/vim-airline'
+Bundle 'mattn/emmet-vim'
+Bundle 'mattn/webapi-vim'
+"Themes
+Bundle 'nanotech/jellybeans.vim'
 filetype plugin indent on     " required!
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
 
-":::General
+":::GENERAL
 colorscheme torte
 set hlsearch
 set ignorecase
@@ -49,17 +32,62 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set nu "numeros de linea
+au BufRead,BufNewFile *.tpl set ft=tpl.html
+"Map Tabs
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+nmap <C-X> :mksession!<CR>:echo "Sesion Guardada!"<CR>
 
-":::snipMate
-au BufRead *.tpl set ft=tpl.html
-au BufNewFile *.tpl set ft=html.tpl
+"Fixes 7.4
+syntax on
+set backspace=2
 
-":::CommandT
-let g:CommandTAcceptSelectionSplitMap='<C-p>'
+":::COMMANDT
+nmap <C-f> \t
+let g:CommandTAcceptSelectionSplitMap='<C-h>'
 
-":::Groovy
+":::GROOVY
 filetype plugin on
 
 ":::PHPQA
 let g:phpqa_codesniffer_autorun=0
 let g:phpqa_messdetector_autorun=0
+
+":::NEOCOMPLETE
+let g:neocomplete#enable_at_startup = 1
+"Disable AutoComplPop
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 2
+
+":::VIM-AIRLINE
+set laststatus=2
+set t_Co=256
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+"let g:airline_theme	= 'powerlineish'
+let g:airline#extensions#branch#enabled = 1
+"let g:airline_powerline_fonts = 1
+"function! AirlineInit()
+	"let g:airline_section_a = airline#section#create(['mode'])
+	"let g:airline_section_b = airline#section#create(['branch'])
+"endfunction
+"autocmd VimEnter * call AirlineInit()
+
+":::EMMET
+nmap <C-E> <C-Y>,
+imap <C-E> <C-Y>,
