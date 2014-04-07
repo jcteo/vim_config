@@ -1,7 +1,7 @@
 vim_config
 ==========
 
-vim configuration
+vim configuration with [Vundle][11]
 
 Plugins
 ------
@@ -35,3 +35,4 @@ Plugins
 [8]:http://github.com/bling/vim-airline
 [9]:http://github.com/mattn/emmet-vim
 [10]:http://github.com/mattn/webapi-vim
+[11]:https://github.com/gmarik/Vundle.vim
