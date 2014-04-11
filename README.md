@@ -1,38 +1,26 @@
-vim_config
-==========
+#vim_config
 
-vim configuration with [Vundle][11]
+vim configuration with [Vundle](https://github.com/gmarik/Vundle.vim)
 
-Plugins
-------
-[Neo Complete][1]
+##Install
 
-[Command-T][2]
+	cd ~
+	git clone git@github.com:/jcteo/vim_config
+	mv vim_config .vim
+	ln -s .vim/vimrc .vimrc
+Open vim and run:
 
-[NERD Comenter][3]
+	:BundleInstall
 
-[NERD Tree][4]
+##Plugins
 
-[phpqa][5]
-
-[phpunitqf][6]
-
-[Fugitive][7]
-
-[Airline][8]
-
-[Emmet][9]
-
-[Webapi][10]
-
-[1]:http://github.com/Shougo/neocomplete.vim
-[2]:http://github.com/wincent/Command-T
-[3]:http://github.com/scrooloose/nerdcommenter
-[4]:http://github.com/scrooloose/nerdtree
-[5]:http://github.com/joonty/vim-phpqa
-[6]:http://github.com/joonty/vim-phpunitqf
-[7]:http://github.com/tpope/vim-fugitive
-[8]:http://github.com/bling/vim-airline
-[9]:http://github.com/mattn/emmet-vim
-[10]:http://github.com/mattn/webapi-vim
-[11]:https://github.com/gmarik/Vundle.vim
+*	[Neo Complete](http://github.com/Shougo/neocomplete.vim)
+*	[Command-T](http://github.com/wincent/Command-T)
+*	[NERD Comenter](http://github.com/scrooloose/nerdcommenter)
+*	[NERD Tree](http://github.com/scrooloose/nerdtree)
+*	[phpqa](http://github.com/joonty/vim-phpqa)
+*	[phpunitqf](http://github.com/joonty/vim-phpunitqf)
+*	[Fugitive](http://github.com/tpope/vim-fugitive)
+*	[Airline](http://github.com/bling/vim-airline)
+*	[Emmet](http://github.com/mattn/emmet-vim)
+*	[Webapi](http://github.com/mattn/webapi-vim)
