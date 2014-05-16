@@ -20,6 +20,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'bling/vim-airline'
 Bundle 'mattn/emmet-vim'
 Bundle 'mattn/webapi-vim'
+Bundle 'jiangmiao/auto-pairs'
 "Themes
 Bundle 'nanotech/jellybeans.vim'
 filetype plugin indent on     " required!
