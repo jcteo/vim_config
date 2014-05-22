@@ -8,7 +8,13 @@ vim configuration with [Vundle](https://github.com/gmarik/Vundle.vim)
 	git clone git@github.com:/jcteo/vim_config
 	mv vim_config .vim
 	ln -s .vim/vimrc .vimrc
-Open vim and run:
+	
+#Install Vundle
+	cd ~
+	mkdir ~/.vim/bundle/vundle/
+	git clone git@github.com:/gmarik/Vundle.vim ~/.vim/bundle/vundle/
+
+#Open vim and run:
 
 	:BundleInstall
 
