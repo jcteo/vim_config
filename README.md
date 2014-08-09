@@ -2,8 +2,13 @@
 
 vim configuration with [Vundle](https://github.com/gmarik/Vundle.vim)
 
+##Requirements
+
+[Pathogen](https://github.com/tpope/vim-pathogen)
+
 ##Install
 
+	( backup your actual vim configuration )
 	cd ~
 	git clone git@github.com:/jcteo/vim_config
 	mv vim_config .vim
@@ -16,7 +21,7 @@ vim configuration with [Vundle](https://github.com/gmarik/Vundle.vim)
 
 ###Open vim and run:
 
-	:BundleInstall
+	:BundlePlugin
 
 ##Plugins
 
