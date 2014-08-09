@@ -4,25 +4,27 @@ execute pathogen#infect()
 "::::VUNDLE
 set nocompatible               " be iMproved
 filetype off                   " required!
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 " My Bundles here:
 " original repos on github
-Bundle 'Shougo/neocomplete.vim'
-Bundle 'wincent/Command-T'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'joonty/vim-phpqa'
-Bundle 'joonty/vim-phpunitqf'
-Bundle 'tpope/vim-fugitive'
-Bundle 'bling/vim-airline'
-Bundle 'mattn/emmet-vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'jiangmiao/auto-pairs'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'wincent/Command-T'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'joonty/vim-phpqa'
+Plugin 'joonty/vim-phpunitqf'
+Plugin 'tpope/vim-fugitive'
+Plugin 'bling/vim-airline'
+Plugin 'mattn/emmet-vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'jiangmiao/auto-pairs'
 "Themes
-Bundle 'nanotech/jellybeans.vim'
+Plugin 'nanotech/jellybeans.vim'
+
+call vundle#end()     " required!
 filetype plugin indent on     " required!
 
 ":::GENERAL
