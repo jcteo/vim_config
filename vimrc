@@ -21,6 +21,8 @@ Plugin 'bling/vim-airline'
 Plugin 'mattn/emmet-vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'editorconfig-vim'
 "Themes
 Plugin 'nanotech/jellybeans.vim'
 
@@ -36,10 +38,15 @@ set tabstop=4
 set shiftwidth=4
 set nu "numeros de linea
 au BufRead,BufNewFile *.tpl set ft=tpl.html
+au BufRead,BufNewFile *.less set ft=.css
+"Maps
+nmap tt <C-W>gf
+nmap t vi'
+nmap T vi"
+nmap <C-X> :mksession!<CR>:echo "Sesion Guardada!"<CR>
 "Map Tabs
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
-nmap <C-X> :mksession!<CR>:echo "Sesion Guardada!"<CR>
 
 "Fixes 7.4
 syntax on
@@ -54,7 +61,7 @@ filetype plugin on
 
 ":::PHPQA
 let g:phpqa_codesniffer_autorun=0
-let g:phpqa_messdetector_autorun=0
+"let g:phpqa_messdetector_autorun=0
 
 ":::NEOCOMPLETE
 let g:neocomplete#enable_at_startup = 1
