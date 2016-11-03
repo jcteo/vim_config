@@ -21,7 +21,7 @@ vim configuration with [Vundle](https://github.com/gmarik/Vundle.vim)
 
 ###Open vim and run:
 
-	:BundlePlugin
+	:PluginInstall
 
 ##Plugins
 
