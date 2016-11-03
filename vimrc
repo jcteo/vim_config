@@ -14,16 +14,26 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'wincent/Command-T'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'joonty/vdebug'
-Plugin 'joonty/vim-phpqa'
-Plugin 'joonty/vim-phpunitqf'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'tpope/vim-surround'
+Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
-Plugin 'mattn/emmet-vim'
-Plugin 'mattn/webapi-vim'
-Plugin 'jiangmiao/auto-pairs'
+Plugin 'joonty/vdebug'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'editorconfig-vim'
+"Notes
+Plugin 'plasticboy/vim-markdown'
+"Plugin 'KabbAmine/gulp-vim'
+"Plugin 'joonty/vim-phpqa'
+"Plugin 'joonty/vim-phpunitqf'
+"Plugin 'mattn/emmet-vim'
+"Plugin 'mattn/webapi-vim'
+" Node
+Plugin 'digitaltoad/vim-jade'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'groenewege/vim-less'
+Plugin 'mustache/vim-mustache-handlebars'
 "Themes
 Plugin 'nanotech/jellybeans.vim'
 
@@ -45,9 +55,13 @@ nmap tt <C-W>gf
 nmap t vi'
 nmap T vi"
 nmap <C-X> :mksession!<CR>:echo "Sesion Guardada!"<CR>
-"Map Tabs
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
+"Map Navigation
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
 
 "Fixes 7.4
 syntax on
@@ -56,6 +70,17 @@ set backspace=2
 ":::COMMANDT
 nmap <C-f> \t
 let g:CommandTAcceptSelectionSplitMap='<C-h>'
+nmap <C-f> :CommandT<CR>
+nmap <C-b> :CommandTBuffer<CR>
+" CHERRY, FOUNDATION project
+set wildignore+=build/**,node_modules/**,generated/**,media-items/**,target/**,tomcat/**,*.jpg,*.png
+
+":::NERDTREE
+nmap <C-d> :NERDTreeToggle<CR>
+nmap mf :NERDTreeFind<CR>
+
+":::FUGITIVE
+set diffopt+=vertical
 
 ":::GROOVY
 filetype plugin on
@@ -104,5 +129,15 @@ let g:airline#extensions#branch#enabled = 1
 "autocmd VimEnter * call AirlineInit()
 
 ":::EMMET
-nmap <C-E> <C-Y>,
-imap <C-E> <C-Y>,
+"nmap <C-E> <C-Y>,
+"imap <C-E> <C-Y>,
+
+":::NODE
+"functions
+function SetNodeTabs()
+	set tabstop=2 shiftwidth=2 expandtab;
+endfunction
+
+
+"TEST
+imap <C-;> <C-C><S-A>;<C-C> 
