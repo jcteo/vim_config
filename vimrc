@@ -45,8 +45,8 @@ colorscheme torte
 set hlsearch
 set ignorecase
 set smartindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set nu "numeros de linea
 au BufRead,BufNewFile *.tpl set ft=tpl.html
 au BufRead,BufNewFile *.less set ft=.css
