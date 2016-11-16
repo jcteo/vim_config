@@ -68,10 +68,7 @@ syntax on
 set backspace=2
 
 ":::COMMANDT
-nmap <C-f> \t
 let g:CommandTAcceptSelectionSplitMap='<C-h>'
-nmap <C-f> :CommandT<CR>
-nmap <C-b> :CommandTBuffer<CR>
 " CHERRY, FOUNDATION project
 set wildignore+=build/**,node_modules/**,generated/**,media-items/**,target/**,tomcat/**,*.jpg,*.png
 
