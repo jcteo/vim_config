@@ -22,6 +22,7 @@ Plugin 'bling/vim-airline'
 Plugin 'joonty/vdebug'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'editorconfig-vim'
+Plugin 'vim-scripts/vim-auto-save'
 "Notes
 Plugin 'plasticboy/vim-markdown'
 "Plugin 'KabbAmine/gulp-vim'
@@ -47,14 +48,14 @@ set ignorecase
 set smartindent
 set tabstop=2
 set shiftwidth=2
+set expandtab
 set nu "numeros de linea
 au BufRead,BufNewFile *.tpl set ft=tpl.html
 au BufRead,BufNewFile *.less set ft=.css
 "Maps
-nmap tt <C-W>gf
-nmap t vi'
-nmap T vi"
+nmap \o <C-W>gf
 nmap <C-X> :mksession!<CR>:echo "Sesion Guardada!"<CR>
+
 "Map Navigation
 nnoremap <C-h> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
@@ -74,10 +75,13 @@ set wildignore+=build/**,node_modules/**,generated/**,media-items/**,target/**,t
 
 ":::NERDTREE
 nmap <C-d> :NERDTreeToggle<CR>
-nmap mf :NERDTreeFind<CR>
+nmap \f :NERDTreeFind<CR>
 
 ":::FUGITIVE
 set diffopt+=vertical
+
+"::AUTO-SAVE
+let g:auto_save=1
 
 ":::GROOVY
 filetype plugin on
