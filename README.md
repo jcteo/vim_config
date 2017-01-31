@@ -2,16 +2,11 @@
 
 vim configuration with [Vundle](https://github.com/gmarik/Vundle.vim)
 
-##Requirements
-
-[Pathogen](https://github.com/tpope/vim-pathogen)
-
 ##Install
 
 	( backup your actual vim configuration )
 	cd ~
-	git clone git@github.com:/jcteo/vim_config
-	mv vim_config .vim
+	git clone git@github.com:/jcteo/vim_config.git .vim
 	ln -s .vim/vimrc .vimrc
 	
 ###Install Vundle
@@ -23,7 +18,7 @@ vim configuration with [Vundle](https://github.com/gmarik/Vundle.vim)
 
 	:PluginInstall
 
-##Plugins
+##Plugins references
 
 *	[Neo Complete](http://github.com/Shougo/neocomplete.vim)
 *	[Command-T](http://github.com/wincent/Command-T)
