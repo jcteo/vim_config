@@ -20,6 +20,8 @@ Plugin 'joonty/vdebug'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'editorconfig-vim'
 Plugin 'vim-scripts/vim-auto-save'
+" THEMES
+Plugin 'nanotech/jellybeans.vim'
 
 " profile/git
 Plugin 'tpope/vim-fugitive'
@@ -28,7 +30,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'plasticboy/vim-markdown'
 
 "profile/php
-Plugin 'joonty/vim-phpqa'
+"Plugin 'joonty/vim-phpqa'
 "Plugin 'joonty/vim-phpunitqf'
 
 " profile/html
@@ -40,9 +42,6 @@ Plugin 'joonty/vim-phpqa'
 "Plugin 'kchmck/vim-coffee-script'
 "Plugin 'groenewege/vim-less'
 "Plugin 'mustache/vim-mustache-handlebars'
-
-" THEMES
-Plugin 'nanotech/jellybeans.vim'
 
 call vundle#end()     " required!
 filetype plugin indent on     " required!
@@ -69,8 +68,6 @@ let g:CommandTAcceptSelectionSplitMap='<C-h>'
 ":::NERDTREE
 nmap <C-d> :NERDTreeToggle<CR>
 nmap \f :NERDTreeFind<CR>
-":::FUGITIVE
-set diffopt+=vertical
 "::AUTO-SAVE
 "let g:auto_save=1
 ":::NEOCOMPLETE
@@ -111,17 +108,21 @@ let g:airline#extensions#branch#enabled = 1
 "endfunction
 "autocmd VimEnter * call AirlineInit()
 
+" profile/git
+":::FUGITIVE
+set diffopt+=vertical
+
 " profile/javascript
-au BufRead,BufNewFile *.less set ft=.css
+"au BufRead,BufNewFile *.less set ft=.css
 
 " profiles/foundation
 "set wildignore+=build/**,node_modules/**,generated/**,vendor/**,media-items/**,target/**,tomcat/**,*.jpg,*.png
 
 " profiles/php
-set wildignore+=vendor/**,**/templates_c/**,*.jpg,*.png
+"set wildignore+=vendor/**,**/templates_c/**,*.jpg,*.png
 ":::PHPQA
-let g:phpqa_codesniffer_autorun=0
-let g:phpqa_messdetector_autorun=1
+"let g:phpqa_codesniffer_autorun=0
+"let g:phpqa_messdetector_autorun=1
 
 "=========MAPS
 inoremap <C-C> <C-C>:w<CR>:echo "Guardado!"<CR>
@@ -135,10 +136,6 @@ nnoremap <C-l> :tabnext<CR>
 "Moving through buffers
 nnoremap <C-j> :bp<CR>
 nnoremap <C-k> :bn<CR>
-nnoremap <A-h> <C-w>h
-nnoremap <A-l> <C-w>l
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
 
 " profiles/html
 "nmap <C-E> <C-Y>,
