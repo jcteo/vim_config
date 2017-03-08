@@ -125,7 +125,7 @@ set diffopt+=vertical
 "let g:phpqa_messdetector_autorun=1
 
 "=========MAPS
-inoremap <C-C> <C-C>:w<CR>:echo "Guardado!"<CR>
+"inoremap <C-C> <C-C>:w<CR>:echo "Guardado!"<CR>
 nmap \o <C-W>gf
 nmap <C-X> :mksession!<CR>:echo "Sesion Guardada!"<CR>
 
