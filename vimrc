@@ -23,25 +23,14 @@ Plugin 'vim-scripts/vim-auto-save'
 " THEMES
 Plugin 'nanotech/jellybeans.vim'
 
-" profile/git
+" git
 Plugin 'tpope/vim-fugitive'
 
-" profile/notes
+" notes
 Plugin 'plasticboy/vim-markdown'
-
-"profile/php
-"Plugin 'joonty/vim-phpqa'
-"Plugin 'joonty/vim-phpunitqf'
 
 " profile/html
 "Plugin 'mattn/emmet-vim'
-
-" profile/javascript
-"Plugin 'KabbAmine/gulp-vim'
-"Plugin 'digitaltoad/vim-jade'
-"Plugin 'kchmck/vim-coffee-script'
-"Plugin 'groenewege/vim-less'
-"Plugin 'mustache/vim-mustache-handlebars'
 
 call vundle#end()     " required!
 filetype plugin indent on     " required!
@@ -58,7 +47,6 @@ set expandtab
 set nu "numeros de linea
 set cursorline
 
-au BufRead,BufNewFile *.tpl set ft=tpl.html
 "Fixes 7.4
 syntax on
 set backspace=2
@@ -70,6 +58,7 @@ nmap <C-d> :NERDTreeToggle<CR>
 nmap \f :NERDTreeFind<CR>
 "::AUTO-SAVE
 "let g:auto_save=1
+
 ":::NEOCOMPLETE
 let g:neocomplete#enable_at_startup = 1
 "Disable AutoComplPop
@@ -112,21 +101,7 @@ let g:airline#extensions#branch#enabled = 1
 ":::FUGITIVE
 set diffopt+=vertical
 
-" profile/javascript
-"au BufRead,BufNewFile *.less set ft=.css
-
-" profiles/foundation
-"set wildignore+=build/**,node_modules/**,generated/**,vendor/**,media-items/**,target/**,tomcat/**,*.jpg,*.png
-
-" profiles/php
-"set wildignore+=vendor/**,**/templates_c/**,*.jpg,*.png
-":::PHPQA
-"let g:phpqa_codesniffer_autorun=0
-"let g:phpqa_messdetector_autorun=1
-
 "=========MAPS
-"inoremap <C-C> <C-C>:w<CR>:echo "Guardado!"<CR>
-nmap \o <C-W>gf
 nmap <C-X> :mksession!<CR>:echo "Sesion Guardada!"<CR>
 
 "Map Navigation
@@ -140,4 +115,3 @@ nnoremap <C-k> :bn<CR>
 " profiles/html
 "nmap <C-E> <C-Y>,
 "imap <C-E> <C-Y>,
-
