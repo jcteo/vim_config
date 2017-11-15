@@ -1,3 +1,9 @@
+"PROFILE
+let vimProfile="default"
+if !empty($VIMPROFILE)
+  let vimProfile=$VIMPROFILE
+endif
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 "=========PLUGINS
@@ -29,7 +35,7 @@ Plug 'plasticboy/vim-markdown'
 " profile/html
 "Plug 'mattn/emmet-vim'
 
-source ~/.config/nvim/profiles/einfluss/plugins.vim
+execute "source ~/.config/nvim/profiles/".vimProfile."/plugins.vim"
 call plug#end()
 
 "=========CONF
@@ -50,6 +56,10 @@ set backspace=2
 
 ":::COMMANDT
 let g:CommandTAcceptSelectionSplitMap='<C-h>'
+"Override CommandTBuffer to show buffers in most recently used buffers
+nnoremap <silent> <leader>b :CommandTMRU<CR>
+"Open files in current window
+set hidden
 ":::NERDTREE
 nmap <C-d> :NERDTreeToggle<CR>
 nmap \f :NERDTreeFind<CR>
@@ -98,12 +108,10 @@ nmap <C-X> :mksession!<CR>:echo "Sesion Guardada!"<CR>
 "Moving through tabs
 nnoremap <C-h> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
-"Moving through buffers
-nnoremap <C-j> :bp<CR>
-nnoremap <C-k> :bn<CR>
 
 " profiles/html
 "nmap <C-E> <C-Y>,
 "imap <C-E> <C-Y>,
 
-source ~/.config/nvim/profiles/einfluss/source.vim
+execute "source ~/.config/nvim/profiles/".vimProfile."/source.vim"
+echo "Using profile: ".vimProfile
