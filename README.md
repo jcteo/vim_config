@@ -1,26 +1,42 @@
-#vim_config
+# vim_config
 
-vim configuration with [Vundle](https://github.com/gmarik/Vundle.vim)
 
-##Install
+## Installation
 
 	( backup your actual vim configuration )
-	cd ~
-	git clone git@github.com:/jcteo/vim_config.git .vim
-	ln -s .vim/vimrc .vimrc
+
+	`git clone git@github.com:/jcteo/vim_config.git ~/.vim`
+
+### VIM
+
+* link vimrc file
+
+	`ln -s .vim/vimrc ~/.vimrc`
 	
-###Install Vundle
-	cd ~
-	mkdir ~/.vim/bundle/vundle/
-	git clone git@github.com:/gmarik/Vundle.vim ~/.vim/bundle/vundle/
+* Install Plugin manager
 
-###Open vim and run:
+  see: [Vundle](https://github.com/gmarik/Vundle.vim)
 
-	:PluginInstall
+* Run: `:PluginInstall`
 
-##Plugins references
+### NEOVIM
 
-*	[Neo Complete](http://github.com/Shougo/neocomplete.vim)
+* link init file
+
+  `mkdir ~/.config/nvim`
+
+  `cd ~/.config/nvim`
+
+  `ln -s ~/.vim/nvim/init.vim init.vim`
+
+* Install Plugin manager
+
+  see: [Plug](https://github.com/junegunn/vim-plug)
+
+* Run:  `:PlugInstall`
+
+##Plugins used
+
 *	[Command-T](http://github.com/wincent/Command-T)
 *	[NERD Comenter](http://github.com/scrooloose/nerdcommenter)
 *	[NERD Tree](http://github.com/scrooloose/nerdtree)
@@ -28,5 +44,24 @@ vim configuration with [Vundle](https://github.com/gmarik/Vundle.vim)
 *	[phpunitqf](http://github.com/joonty/vim-phpunitqf)
 *	[Fugitive](http://github.com/tpope/vim-fugitive)
 *	[Airline](http://github.com/bling/vim-airline)
-*	[Emmet](http://github.com/mattn/emmet-vim)
 *	[Webapi](http://github.com/mattn/webapi-vim)
+
+VIM
+
+* [Vundle](https://github.com/gmarik/Vundle.vim) VIM Plugin Manager
+*	[Neo Complete](http://github.com/Shougo/neocomplete.vim)
+
+NEOVIM
+
+* [Plug](https://github.com/junegunn/vim-plug) VIM Plugin Manager
+*	[Deoplete](https://github.com/Shougo/deoplete.nvim)
+
+##Profiler
+
+Only for Neovim you can use profiles in order to use diferent plugin and configurations for diferents projects
+
+To use profiler, just link profile dir to nvim configuration dir
+
+	`ln -s ~/.vim/nvim/profiles/ ~/.config/nvim/profiles`
+
+editing...
