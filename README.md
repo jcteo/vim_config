@@ -35,7 +35,7 @@
 
 * Run:  `:PlugInstall`
 
-##Plugins used
+## Plugins
 
 *	[Command-T](http://github.com/wincent/Command-T)
 *	[NERD Comenter](http://github.com/scrooloose/nerdcommenter)
@@ -56,7 +56,7 @@ NEOVIM
 * [Plug](https://github.com/junegunn/vim-plug) VIM Plugin Manager
 *	[Deoplete](https://github.com/Shougo/deoplete.nvim)
 
-##Profiler
+## Profiler
 
 Only for Neovim you can use profiles in order to use diferent plugin and configurations for diferents projects
 
