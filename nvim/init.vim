@@ -4,11 +4,11 @@ if !empty($VIMPROFILE)
   let vimProfile=$VIMPROFILE
 endif
 
+let profileDir="~/.config/nvim/profiles/".vimProfile."/"
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 "=========PLUGINS
-" required! 
-Plug 'gmarik/Vundle.vim'
 
 " profile/base
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -34,8 +34,9 @@ Plug 'plasticboy/vim-markdown'
 
 " profile/html
 "Plug 'mattn/emmet-vim'
-
-execute "source ~/.config/nvim/profiles/".vimProfile."/plugins.vim"
+if !empty(glob(profileDir."plugins.vim"))
+  execute "source ".profileDir."plugins.vim"
+endif
 call plug#end()
 
 "=========CONF
@@ -113,5 +114,8 @@ nnoremap <C-l> :tabnext<CR>
 "nmap <C-E> <C-Y>,
 "imap <C-E> <C-Y>,
 
-execute "source ~/.config/nvim/profiles/".vimProfile."/source.vim"
+if !empty(glob(profileDir."source.vim"))
+  execute "source ".profileDir."source.vim"
+endif
+
 echo "Using profile: ".vimProfile
