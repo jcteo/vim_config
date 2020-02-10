@@ -15,6 +15,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'wincent/Command-T'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'vim-syntastic/syntastic'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'mileszs/ack.vim'
@@ -30,6 +31,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'tpope/vim-fugitive'
 
 " notes
+Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 " profile/html
@@ -48,7 +50,8 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set nu "numeros de linea
+set relativenumber "numeros de linea
+set number
 set cursorline
 
 "Fixes 7.4
@@ -66,7 +69,19 @@ nmap <C-d> :NERDTreeToggle<CR>
 nmap \f :NERDTreeFind<CR>
 "::AUTO-SAVE
 "let g:auto_save=1
-"
+
+":::SYNTASTIC
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['php', 'js'], 'passive_file_types': ['java'] }
+
 "::DEOPLETE
 let g:deoplete#enable_at_startup = 1
 
@@ -98,6 +113,12 @@ let g:airline#extensions#branch#enabled = 1
 "endfunction
 "autocmd VimEnter * call AirlineInit()
 
+
+" Markdown
+" disable folding, vim markdown have an error it closes every key stroke
+set nofoldenable
+
+
 " profile/git
 ":::FUGITIVE
 set diffopt+=vertical
@@ -109,6 +130,10 @@ nmap <C-X> :mksession!<CR>:echo "Sesion Guardada!"<CR>
 "Moving through tabs
 nnoremap <C-h> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
+
+"Moving through buffers
+nnoremap <C-j> :bnext<CR>
+nnoremap <C-k> :bprevious<CR>
 
 " profiles/html
 "nmap <C-E> <C-Y>,
