@@ -12,7 +12,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " profile/base
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'wincent/Command-T'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-syntastic/syntastic'
@@ -58,12 +58,13 @@ set cursorline
 syntax on
 set backspace=2
 
-":::COMMANDT
-let g:CommandTAcceptSelectionSplitMap='<C-h>'
-"Override CommandTBuffer to show buffers in most recently used buffers
-nnoremap <silent> <leader>b :CommandTMRU<CR>
+":::CTRLP
+" Show buffers
+nnoremap <silent> <leader>b :CtrlPBuffer<CR>
+
 "Open files in current window
 set hidden
+
 ":::NERDTREE
 nmap <C-d> :NERDTreeToggle<CR>
 nmap \f :NERDTreeFind<CR>
