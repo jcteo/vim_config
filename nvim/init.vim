@@ -66,8 +66,8 @@ nnoremap <silent> <leader>b :CtrlPBuffer<CR>
 set hidden
 
 ":::NERDTREE
-nmap <C-d> :NERDTreeToggle<CR>
-nmap \f :NERDTreeFind<CR>
+nmap <leader>d :NERDTreeToggle<CR>
+nmap <leader>f :NERDTreeFind<CR>
 "::AUTO-SAVE
 "let g:auto_save=1
 
