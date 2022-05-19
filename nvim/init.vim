@@ -137,6 +137,8 @@ nnoremap <C-j> :bnext<CR>
 nnoremap <C-k> :bprevious<CR>
 
 " profiles/html
+" TODO: move to brightspot profile
+au BufReadPost *.hbs set syntax=html
 "nmap <C-E> <C-Y>,
 "imap <C-E> <C-Y>,
 
