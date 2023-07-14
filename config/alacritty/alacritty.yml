@@ -5,7 +5,7 @@ window:
 
 # Font configuration
 font:
-  size: 14.0
+  size: 12.0
 
 selection:
   save_to_clipboard: true

@@ -18,7 +18,19 @@ call plug#begin('~/.local/share/nvim/plugged')
 "=========PLUGINS
 
 " profile/base
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" DDC -----------------------
+" // Needs [Deno](https://deno.land/manual@v1.35.1/getting_started/installation) Installed
+Plug 'Shougo/ddc.vim'
+Plug 'vim-denops/denops.vim'
+" DDC UIs
+Plug 'Shougo/ddc-ui-native'
+" DDC sources
+Plug 'Shougo/ddc-source-around'
+" DDC filters
+Plug 'Shougo/ddc-matcher_head'
+Plug 'Shougo/ddc-sorter_rank'
+" ----------------------- /DDC
+"
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
