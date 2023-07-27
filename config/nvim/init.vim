@@ -26,22 +26,29 @@ Plug 'vim-denops/denops.vim'
 Plug 'Shougo/ddc-ui-native'
 " DDC sources
 Plug 'Shougo/ddc-source-around'
+Plug 'LumaKernel/ddc-source-file'
+Plug 'LumaKernel/ddc-tabnine'
 " DDC filters
 Plug 'Shougo/ddc-matcher_head'
 Plug 'Shougo/ddc-sorter_rank'
 " ----------------------- /DDC
 "
+" TODO: see CocSearch or fzf. Replace ctrlpvim?
+" TODO: check plugin for compact code compact in JSON file for example
+" TODO: review Coc to Classes, variables definitions navigation (like Ctrl+Click de intelliJ)
+" TODO: install font (Nerd Font)[https://github.com/ryanoasis/nerd-fonts#font-installation]  in order to make devicons work
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-syntastic/syntastic'
 Plug 'jiangmiao/auto-pairs'
+Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-surround'
 Plug 'mileszs/ack.vim'
 Plug 'bling/vim-airline'
 Plug 'joonty/vdebug'
 Plug 'maksimr/vim-jsbeautify'
-"Plug 'editorconfig-vim'
+" Plug 'editorconfig-vim'
 Plug 'vim-scripts/vim-auto-save'
 " THEMES
 Plug 'nanotech/jellybeans.vim'
@@ -77,6 +84,69 @@ set cursorline
 syntax on
 set backspace=2
 
+"::: DDC // TODO pass to a separate file
+" Customize global settings
+
+" You must set the default ui.
+" NOTE: native ui
+" https://github.com/Shougo/ddc-ui-native
+call ddc#custom#patch_global('ui', 'native')
+
+" Use around source.
+" https://github.com/Shougo/ddc-source-around
+" Use source tabnine
+" call ddc#custom#patch_global('sources', ['around', 'tabnine'])
+call ddc#custom#patch_global('sources', ['around', 'file'])
+
+" Use matcher_head and sorter_rank.
+" https://github.com/Shougo/ddc-matcher_head
+" https://github.com/Shougo/ddc-sorter_rank
+call ddc#custom#patch_global('sourceOptions', #{
+      \ _: #{
+      \   matchers: ['matcher_head'],
+      \   sorters: ['sorter_rank']},
+      \ })
+
+" Change source options
+call ddc#custom#patch_global('sourceOptions', #{
+      \   around: #{ mark: 'A' },
+      \ })
+
+call ddc#custom#patch_global('sourceOptions', #{
+    \ tabnine: #{
+    \   mark: 'TN',
+    \   isVolatile: v:true,
+    \ }})
+
+call ddc#custom#patch_global('sourceParams', #{
+      \   around: #{ maxSize: 500 },
+      \ })
+
+" Customize settings on a filetype
+call ddc#custom#patch_filetype(['c', 'cpp'], 'sources',
+      \ ['around', 'clangd'])
+call ddc#custom#patch_filetype(['c', 'cpp'], 'sourceOptions', #{
+      \   clangd: #{ mark: 'C' },
+      \ })
+call ddc#custom#patch_filetype('markdown', 'sourceParams', #{
+      \   around: #{ maxSize: 100 },
+      \ })
+
+" Mappings
+
+" <TAB>: completion.
+inoremap <silent><expr> <TAB>
+\ pumvisible() ? '<C-n>' :
+\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+\ '<TAB>' : ddc#map#manual_complete()
+
+" <S-TAB>: completion back.
+inoremap <expr><S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
+
+" Use ddc.
+call ddc#enable()
+
+"
 ":::CTRLP
 " Show buffers
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
@@ -87,6 +157,8 @@ set hidden
 ":::NERDTREE
 nmap <leader>d :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
+let NERDTreeQuitOnOpen=1
+
 "::AUTO-SAVE
 "let g:auto_save=1
 
