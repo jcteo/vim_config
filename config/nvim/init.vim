@@ -40,7 +40,7 @@ Plug 'Shougo/ddc-sorter_rank'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'vim-syntastic/syntastic'
+Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-surround'
@@ -162,20 +162,9 @@ let NERDTreeQuitOnOpen=1
 "::AUTO-SAVE
 "let g:auto_save=1
 
-":::SYNTASTIC
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"::ALE
+let g:ale_linters = {'javascript': ['eslint'], 'less': ['lesshint']}
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['php', 'js'], 'passive_file_types': ['java'] }
-
-"::DEOPLETE
-let g:deoplete#enable_at_startup = 1
 
 ":::VIM-AIRLINE
 set laststatus=2
