@@ -40,6 +40,8 @@ Plug 'Shougo/ddc-sorter_rank'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+" icon colors on nerdtree
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ryanoasis/vim-devicons'
@@ -215,6 +217,21 @@ nnoremap <C-l> :tabnext<CR>
 "Moving through buffers
 nnoremap <C-j> :bnext<CR>
 nnoremap <C-k> :bprevious<CR>
+
+"Functions
+"Config files
+" TODO improve this with a single function
+function! Cfnv()
+  tabnew ~/.config/nvim/init.vim
+endfunction
+
+function! Cfa()
+  tabnew ~/.config/alacritty/alacritty.yml
+endfunction
+
+function! Cft()
+  tabnew ~/.tmux.conf
+endfunction
 
 " profiles/html
 " TODO: move to brightspot profile
