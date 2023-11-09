@@ -13,6 +13,7 @@ endif
 
 let profileDir="~/.config/nvim/profiles/".vimProfile."/"
 
+" Change for Shougo/dein.vim???
 call plug#begin('~/.local/share/nvim/plugged')
 
 "=========PLUGINS
@@ -33,11 +34,14 @@ Plug 'Shougo/ddc-matcher_head'
 Plug 'Shougo/ddc-sorter_rank'
 " ----------------------- /DDC
 "
-" TODO: see CocSearch or fzf. Replace ctrlpvim?
+" TODO: see CocSearch or fzf. or Telescope Replace ctrlpvim?
 " TODO: check plugin for compact code compact in JSON file for example
 " TODO: review Coc to Classes, variables definitions navigation (like Ctrl+Click de intelliJ)
 " TODO: install font (Nerd Font)[https://github.com/ryanoasis/nerd-fonts#font-installation]  in order to make devicons work
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'BurntSushi/ripgrep'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
+"Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 " icon colors on nerdtree
@@ -46,7 +50,8 @@ Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-surround'
-Plug 'mileszs/ack.vim'
+" ack replaced with telescope list_grep
+"Plug 'mileszs/ack.vim'
 Plug 'bling/vim-airline'
 Plug 'joonty/vdebug'
 Plug 'maksimr/vim-jsbeautify'
@@ -57,6 +62,7 @@ Plug 'nanotech/jellybeans.vim'
 
 " git
 Plug 'tpope/vim-fugitive'
+Plug 'lewis6991/gitsigns.nvim'
 
 " notes
 Plug 'godlygeek/tabular'
@@ -134,6 +140,17 @@ call ddc#custom#patch_filetype('markdown', 'sourceParams', #{
       \   around: #{ maxSize: 100 },
       \ })
 
+" LUA
+" TODO: import lua from file source '~/.config/nvim/lua/init.lua'
+lua << EOF
+  require('gitsigns').setup {
+    signs = {
+      add       = { text = ">" },
+      delete    = { text = "<" },
+    }
+  }
+EOF
+
 " Mappings
 
 " <TAB>: completion.
@@ -148,10 +165,18 @@ inoremap <expr><S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
 " Use ddc.
 call ddc#enable()
 
-"
+" TODO: move to profile
+set wildignore+=*/target/*,**/target/*,*/node_modules/*
+
 ":::CTRLP
 " Show buffers
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
+
+":::TELESCOPE
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 "Open files in current window
 set hidden
@@ -221,17 +246,21 @@ nnoremap <C-k> :bprevious<CR>
 "Functions
 "Config files
 " TODO improve this with a single function
-function! Cfnv()
+function s:Cfnv()
   tabnew ~/.config/nvim/init.vim
 endfunction
 
-function! Cfa()
+function s:Cfa()
   tabnew ~/.config/alacritty/alacritty.yml
 endfunction
 
-function! Cft()
+function s:Cft()
   tabnew ~/.tmux.conf
 endfunction
+
+command! Cfnv call s:Cfnv()
+command! Cfa call s:Cfa()
+command! Cft call s:Cft()
 
 " profiles/html
 " TODO: move to brightspot profile
