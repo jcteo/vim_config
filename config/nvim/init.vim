@@ -251,7 +251,7 @@ set nofoldenable
 set diffopt+=vertical
 
 "=========MAPS
-nmap <C-X> :mksession!<CR>:echo "Sesion Guardada!"<CR>
+nmap <C-X> :mksession!<CR>:echo "Sesion Guardada!"<CR>:wqa<CR>
 
 "Map Navigation
 "Moving through tabs
