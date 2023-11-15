@@ -41,6 +41,7 @@ Plug 'Shougo/ddc-sorter_rank'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'BurntSushi/ripgrep'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
+Plug 'pwntester/octo.nvim'
 "Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -149,6 +150,8 @@ lua << EOF
       delete    = { text = "<" },
     }
   }
+
+  require('octo').setup()
 EOF
 
 " Mappings
