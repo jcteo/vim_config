@@ -248,8 +248,9 @@ nnoremap <C-l> :tabnext<CR>
 nnoremap <C-j> :bnext<CR>
 nnoremap <C-k> :bprevious<CR>
 
-"Functions
-"Config files
+
+" Functions
+" Config files
 " TODO improve this with a single function
 function s:Cfnv()
   tabnew ~/.config/nvim/init.vim
@@ -266,6 +267,9 @@ endfunction
 command! Cfnv call s:Cfnv()
 command! Cfa call s:Cfa()
 command! Cft call s:Cft()
+
+" Octo
+command! Octorw Octo pr search type:pr repo:perfectsense/tvazteca user-review-requested:@me
 
 " profiles/html
 " TODO: move to brightspot profile
