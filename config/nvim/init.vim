@@ -157,7 +157,22 @@ lua << EOF
 
   require('telescope').load_extension('live_grep_args')
 
-  require('octo').setup()
+  require('octo').setup({
+    mappings = {
+      review_thread = {
+        close_review_tab = { lhs = "<C-q>", desc = "close review tab" }
+      },
+      submit_win = {
+        close_review_tab = { lhs = "<C-q>", desc = "close review tab" }
+      },
+      review_diff = {
+        close_review_tab = { lhs = "<C-q>", desc = "close review tab" }
+      },
+      file_pannel = {
+        close_review_tab = { lhs = "<C-q>", desc = "close review tab" }
+      }
+    }
+  })
 
   require('tabnine').setup({
     disable_auto_comment=true,
